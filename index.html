@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Resultados - BCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="container" id="reporte-container">
+        <div class="header">
+            <span class="company-logo">BCC</span>
+            <div class="header-title">
+                <h1>Estado de Resultados</h1>
+                <div class="date-selector">
+                    <select id="month-select">
+                        <option value="0">Enero</option>
+                        <option value="1">Febrero</option>
+                        <option value="2">Marzo</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Mayo</option>
+                        <option value="5">Junio</option>
+                        <option value="6">Julio</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Septiembre</option>
+                        <option value="9">Octubre</option>
+                        <option value="10">Noviembre</option>
+                        <option value="11">Diciembre</option>
+                    </select>
+                    <select id="year-select"></select>
+                </div>
+            </div>
+        </div>
+
+        <details class="section" open data-section-id="ingresos">
+            <summary class="section-title">(+) Ingresos por Campañas (Ventas Netas)</summary>
+            <div class="rows-container">
+                <div class="line-item"><label>Encuestas</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Claro Solvencia</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>WOM</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Mexico</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Tuves</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Citas España</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Bells</label><input type="text" class="input-field" data-category="ingresos" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+            </div>
+            <div class="add-row-container"><button class="add-row-btn" data-category="ingresos">+ Agregar Fila</button></div>
+            <div class="line-item subtotal-line">
+                <label>Total de Ingresos</label>
+                <span id="totalIngresos" class="result">$ 0.00</span>
+            </div>
+        </details>
+
+        <details class="section" open data-section-id="costoServicio">
+            <summary class="section-title">(-) Costo del Servicio (Sueldos de Campañas)</summary>
+            <div class="rows-container">
+                <div class="line-item"><label>Sueldo Encuestas</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Claro Solvencia</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo WOM</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Mexico</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Citas España</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Tuves</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Bells</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Transferencia</label><input type="text" class="input-field" data-category="costo-servicio" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+            </div>
+            <div class="add-row-container"><button class="add-row-btn" data-category="costo-servicio">+ Agregar Fila</button></div>
+            <div class="line-item subtotal-line">
+                <label>Total Costo del Servicio</label>
+                <span id="totalCostoServicio" class="result-secondary">($ 0.00)</span>
+            </div>
+        </details>
+
+        <div class="line-item total-line major-total">
+            <label> (=) UTILIDAD BRUTA</label>
+            <span id="utilidadBruta" class="result">$ 0.00</span>
+        </div>
+
+        <details class="section" open data-section-id="gastosOperativos">
+            <summary class="section-title">(-) Gastos Operativos</summary>
+            <div class="subsection-title">Gastos de Venta y Marketing</div>
+            <div class="rows-container sub-section-rows" data-subsection-id="gastosVentaMarketing">
+                <div class="line-item"><label>Anuncios</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Publicidad</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>LinkedIn</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+            </div>
+            <div class="add-row-container"><button class="add-row-btn" data-category="gastos-op">+ Agregar Gasto de Venta</button></div>
+
+            <div class="subsection-title">Gastos Generales y Administrativos</div>
+            <div class="rows-container sub-section-rows" data-subsection-id="gastosGeneralesAdmin">
+                <div class="line-item"><label>Sueldo Tecnología</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo RRHH</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Contadora</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Administración</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Recepción</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Sueldo Limpieza</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Renta de Oficina</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Internet</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Dominios</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Transporte</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+            </div>
+            <div class="add-row-container"><button class="add-row-btn" data-category="gastos-op">+ Agregar Gasto Admin.</button></div>
+
+            <div class="subsection-title">Mantenimiento, Suministros y Equipos</div>
+             <div class="rows-container sub-section-rows" data-subsection-id="gastosMantenimiento">
+                <div class="line-item"><label>Mantenimiento (Estructura, A/C)</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Fumigación</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Switch</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Artículos de Limpieza</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Baterías</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+                <div class="line-item"><label>Bolsas de Basura</label><input type="text" class="input-field" data-category="gastos-op" placeholder="$ 0.00"><span class="remove-row-btn">×</span></div>
+            </div>
+            <div class="add-row-container"><button class="add-row-btn" data-category="gastos-op">+ Agregar Gasto Mant.</button></div>
+            
+            <div class="line-item subtotal-line">
+                <label>Total Gastos Operativos</label>
+                <span id="totalGastosOperativos" class="result-secondary">($ 0.00)</span>
+            </div>
+        </details>
+        
+        <div class="line-item total-line major-total">
+            <label> (=) UTILIDAD OPERATIVA</label>
+            <span id="utilidadOperativa" class="result">$ 0.00</span>
+        </div>
+        
+        <div class="section">
+            <div class="line-item total-line">
+                <label> (=) UTILIDAD ANTES DE IMPUESTOS (UAI)</label>
+                <span id="utilidadAntesImpuestos" class="result">$ 0.00</span>
+            </div>
+            <div class="line-item">
+                <label>(-) Impuestos</label>
+                <input type="text" id="impuestosFijos" class="input-field" placeholder="$ 0.00">
+            </div>
+            <div class="line-item final-result">
+                <label> (=) UTILIDAD NETA</label>
+                <span id="utilidadNeta" class="result-final">$ 0.00</span>
+            </div>
+        </div>
+
+        <div class="metrics-container">
+            <div class="metric-box">
+                <h3>Margen Bruto</h3>
+                <p id="margenBruto">0.00%</p>
+                <span>Rentabilidad directa de tus campañas.</span>
+            </div>
+            <div class="metric-box">
+                <h3>Margen Operativo</h3>
+                <p id="margenOperativo">0.00%</p>
+                <span>Eficiencia de la operación del negocio.</span>
+            </div>
+            <div class="metric-box">
+                <h3>Margen Neto</h3>
+                <p id="margenNeto">0.00%</p>
+                <span>Ganancia final real de la empresa.</span>
+            </div>
+        </div>
+
+        <div class="info-section" data-section-id="sueldosDirectivos">
+            <h3>Sueldos Directivos (Participación sobre Utilidad Neta)</h3>
+            <div class="line-item">
+                <label>Director de BCC (12% de Utilidad Neta)</label>
+                <span id="sueldoDirector" class="result-secondary">($ 0.00)</span>
+            </div>
+            <div class="line-item">
+                <label>Presidente de BCC (15% de Utilidad Neta)</label>
+                <span id="sueldoPresidente" class="result-secondary">($ 0.00)</span>
+            </div>
+            <div class="line-item subtotal-line">
+                <label>Total Sueldos Directivos</label>
+                <span id="totalSueldosDirectivos" class="result-secondary">($ 0.00)</span>
+            </div>
+        </div>
+
+        <div class="info-section" data-section-id="distribucion">
+            <h3>Distribución de Utilidades (Adicional)</h3>
+            <p class="info-text">Esta sección muestra cómo se puede repartir la Utilidad Neta restante.</p>
+            <div class="line-item"><label>Utilidad Neta (Después de Sueldos Directivos)</label><span id="utilidadNetaDespuesDirectivos" class="result">$ 0.00</span></div>
+            
+            <div class="line-item">
+                <label>(-) Participación Socio 1 (10%)</label>
+                <span id="participacionSocio1" class="result-secondary">($ 0.00)</span>
+            </div>
+            <div class="line-item">
+                <label>(-) Participación Socio 2 (10%)</label>
+                <span id="participacionSocio2" class="result-secondary">($ 0.00)</span>
+            </div>
+            <div class="line-item">
+                <label>(-) Reserva Legal (10% de lo restante)</label>
+                <span id="reservaLegal" class="result-secondary">($ 0.00)</span>
+            </div>
+            <div class="line-item total-line">
+                <label> (=) Utilidad Retenida (Reinversión)</label>
+                <span id="utilidadRetenida" class="result">$ 0.00</span>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="button-container">
+        <button id="save-data-btn" class="secondary-btn">Guardar Datos</button>
+        <button id="load-data-btn" class="secondary-btn">Cargar Datos</button>
+        <button id="export-pdf-btn">Exportar a PDF</button>
+        <input type="file" id="file-loader" accept=".json" style="display: none;">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
