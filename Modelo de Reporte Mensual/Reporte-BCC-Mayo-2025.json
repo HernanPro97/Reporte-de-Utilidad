@@ -1,0 +1,295 @@
+{
+  "version": 6,
+  "period": {
+    "month": "4",
+    "year": "2025"
+  },
+  "sectionsData": [
+    {
+      "id": "ingresos",
+      "subSections": [
+        {
+          "title": null,
+          "containerId": "ingresos",
+          "rows": [
+            {
+              "label": "Encuestas",
+              "value": 5451,
+              "isEditable": false,
+              "category": "ingresos"
+            },
+            {
+              "label": "Claro Solvencia",
+              "value": 5211,
+              "isEditable": false,
+              "category": "ingresos"
+            },
+            {
+              "label": "WOM",
+              "value": 16035,
+              "isEditable": false,
+              "category": "ingresos"
+            },
+            {
+              "label": "Mexico",
+              "value": 9377,
+              "isEditable": false,
+              "category": "ingresos"
+            },
+            {
+              "label": "Tuves",
+              "value": 8834.92,
+              "isEditable": false,
+              "category": "ingresos"
+            },
+            {
+              "label": "Citas España",
+              "value": 374,
+              "isEditable": false,
+              "category": "ingresos"
+            },
+            {
+              "label": "Bells",
+              "value": 0,
+              "isEditable": false,
+              "category": "ingresos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "costoServicio",
+      "subSections": [
+        {
+          "title": null,
+          "containerId": "costoServicio",
+          "rows": [
+            {
+              "label": "Sueldo Encuestas",
+              "value": 3375,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Sueldo Claro Solvencia",
+              "value": 3673,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Sueldo WOM",
+              "value": 6493,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Sueldo Mexico",
+              "value": 5891,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Sueldo Citas España",
+              "value": 196,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Sueldo Tuves",
+              "value": 3101,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Sueldo Bells",
+              "value": 589,
+              "isEditable": false,
+              "category": "costo-servicio"
+            },
+            {
+              "label": "Transferencia",
+              "value": 315,
+              "isEditable": false,
+              "category": "costo-servicio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gastosOperativos",
+      "subSections": [
+        {
+          "title": "Gastos de Venta y Marketing",
+          "containerId": "gastosVentaMarketing",
+          "rows": [
+            {
+              "label": "Anuncios",
+              "value": 35,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Publicidad",
+              "value": 50,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "LinkedIn",
+              "value": 300,
+              "isEditable": false,
+              "category": "gastos-op"
+            }
+          ]
+        },
+        {
+          "title": "Gastos Generales y Administrativos",
+          "containerId": "gastosGeneralesAdmin",
+          "rows": [
+            {
+              "label": "Sueldo Tecnología",
+              "value": 840,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Sueldo RRHH",
+              "value": 1830,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Sueldo Contadora",
+              "value": 268,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Sueldo Administración",
+              "value": 500,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Sueldo Recepción",
+              "value": 180,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Sueldo Limpieza",
+              "value": 450,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Renta de Oficina",
+              "value": 3500,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Internet",
+              "value": 350,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Dominios",
+              "value": 216,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Camaras",
+              "value": 70,
+              "isEditable": true,
+              "category": "gastos-op"
+            }
+          ]
+        },
+        {
+          "title": "Mantenimiento, Suministros y Equipos",
+          "containerId": "gastosMantenimiento",
+          "rows": [
+            {
+              "label": "Mantenimiento (Estructura, A/C)",
+              "value": 100,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Artículos de Limpieza",
+              "value": 25.5,
+              "isEditable": false,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Carnets",
+              "value": 30,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Bultos de Papel",
+              "value": 120,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Factureros",
+              "value": 50,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Bolsas de Basura",
+              "value": 43,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Cuñete",
+              "value": 62,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Corneta",
+              "value": 120,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Art de Tecnologia",
+              "value": 45,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Resma de Hojas",
+              "value": 8,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Art de Papeleria",
+              "value": 45,
+              "isEditable": true,
+              "category": "gastos-op"
+            },
+            {
+              "label": "Herraje",
+              "value": 35.97,
+              "isEditable": true,
+              "category": "gastos-op"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "impuestos": 305.49
+}
